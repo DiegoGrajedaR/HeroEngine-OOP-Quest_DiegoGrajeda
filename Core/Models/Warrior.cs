@@ -11,6 +11,7 @@ namespace PP7_HeroEngine_OOP.Core.Models
         public int Armor { get; set; }
         public string BattleCry { get; set; }
 
+        //Warrior Constructor to instantiate
         public Warrior(string name, int level, string battleCry) : base(name, level)
         {
             BattleCry = battleCry;
@@ -18,6 +19,7 @@ namespace PP7_HeroEngine_OOP.Core.Models
             Armor = 20 + ((Level - 1) * 10);
         }
 
+        //CHAPTER 1 - Overriden methods of the parent class AHero
         public override int Attack()
         {
             int damage = 30 + (Level * 5);

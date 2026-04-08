@@ -11,6 +11,7 @@ namespace PP7_HeroEngine_OOP.Core.Models
         public int Mana { get; set; }
         public int ArcaneLvl { get; set; }
 
+        //Mage Constructor to instantiate
         public Mage(string name, int level, int arcaneLvl) : base(name, level) 
         {
             ArcaneLvl = arcaneLvl;
@@ -18,6 +19,7 @@ namespace PP7_HeroEngine_OOP.Core.Models
             Mana = 50 + ((level - 1) * 20);
         }
 
+        //CHAPTER 1 - Overriden methods of the parent class AHero
         public override int Attack()
         {
             int manaCost = 10;

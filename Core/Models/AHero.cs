@@ -14,7 +14,7 @@ namespace PP7_HeroEngine_OOP.Core.Models
         protected int CurrentHP { get; set; }
         public bool IsDefeated => CurrentHP <= 0;
 
-        //Hero Constructor
+        //CHAPTER 1 - Hero Constructor
         public AHero(string name, int level) 
         {
             Name = name;
@@ -24,7 +24,7 @@ namespace PP7_HeroEngine_OOP.Core.Models
             CurrentHP = MaxHP;
         }
 
-        //
+        //CHAPTER 1 - Methods for attack, take damage and display stats
         public abstract int Attack();
 
         public virtual void TakeDamage(int damage) 

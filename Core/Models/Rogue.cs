@@ -11,12 +11,14 @@ namespace PP7_HeroEngine_OOP.Core.Models
         public double StealthMultiplier { get; set; }
         public int HiddenDaggers { get; set; }
 
+        //Rogue Constructor to instantiate
         public Rogue(string name, int level, int hiddenDaggers) : base(name, level) 
         {
             HiddenDaggers = hiddenDaggers;
             StealthMultiplier = 1 + ((level - 1) * 0.2);
         }
 
+        //CHAPTER 1 - Overriden methods of the parent class AHero
         public override int Attack()
         {
             if (HiddenDaggers > 0)
