@@ -8,7 +8,7 @@ namespace PP7_HeroEngine_OOP.Core.Models
 {
     public abstract class AHero
     {
-        protected string Name { get; set; } 
+        public string Name { get; set; } 
         protected int Level { get; set; } 
         protected int MaxHP { get; set; } 
         protected int CurrentHP { get; set; }
@@ -38,6 +38,15 @@ namespace PP7_HeroEngine_OOP.Core.Models
         }
 
         public override string ToString() => $"{Name} | Level: {Level} | HP: {CurrentHP}/{MaxHP}";
+
+        //CHAPTER 2
+        public List<AAbility> listAbilities = new List<AAbility>();
+
+        public void EquipAbility(AAbility ability) 
+        {
+            listAbilities.Add(ability);
+            Console.WriteLine($"[Equipped] {ability.Name} added to {Name}'s loadout.");
+        }
 
 
     }

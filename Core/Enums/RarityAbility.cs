@@ -12,6 +12,5 @@ namespace PP7_HeroEngine_OOP.Core.Enums
         RARE,
         EPIC,
         LEGENDARY
-
     }
 }

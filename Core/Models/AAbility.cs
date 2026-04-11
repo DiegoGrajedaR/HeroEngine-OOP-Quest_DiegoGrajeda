@@ -10,18 +10,18 @@ namespace PP7_HeroEngine_OOP.Core.Models
 {
     public abstract class AAbility : IAbility
     {
-        protected string Name { get; set; }
+        public string Name { get; set; }
         protected TypeAbility TypeAbility { get; set; }
         protected RarityAbility RarityAbility { get; set; }
         protected int ManaCost { get; set; }
 
 
-        public AAbility(string name, TypeAbility type, RarityAbility rarity, int manaCost) 
+        public AAbility(string name, TypeAbility type, RarityAbility rarity) 
         {
             Name = name;
             TypeAbility = type;
             RarityAbility = rarity;
-            ManaCost = manaCost;
+            ManaCost = 5;
         }
 
         public abstract void Execute(Mage mage);
