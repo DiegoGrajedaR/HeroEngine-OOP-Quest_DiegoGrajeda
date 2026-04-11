@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace PP7_HeroEngine_OOP.Core.Models
 {
+    //Ability subclass that can be instantiated and, when used, calculates damage and mana cost.
     public class AttackAbility : AAbility
     {
         public int BaseDamage { get; set; }
 
-        public AttackAbility(string name, RarityAbility rarity, int manaCost) : base(name, TypeAbility.Attack, rarity) 
+        public AttackAbility(string name, RarityAbility rarity) : base(name, TypeAbility.Attack, rarity) 
         {
             BaseDamage = 10;
         }

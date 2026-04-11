@@ -10,6 +10,7 @@ namespace PP7_HeroEngine_OOP.Core.Models
 {
     public class HealingAbility : AAbility
     {
+        //Ability subclass that can be instantiated and, when used, calculates healing and mana cost.
         public int BaseHeal { get; set; }
 
         public HealingAbility(string name, RarityAbility rarity, int manaCost) : base(name, TypeAbility.Attack, rarity)

@@ -40,5 +40,49 @@ namespace PP7_HeroEngine_OOP.Core.Models
         }
 
         public override string ToString() => $"[Mage] {base.ToString()} | Mana: {Mana} | ArcaneLvl: {ArcaneLvl}";
+
+        //CHAPTER 2 - New methods related to the abilites class, only mage can use them 
+
+        public List<AAbility> listAbilities = new List<AAbility>();
+
+        public void EquipAbility(AAbility ability)
+        {
+            listAbilities.Add(ability);
+            Console.WriteLine($"Equipped! {ability.Name} added to {Name}'s loadout.");
+        }
+
+        public void ShowOrderedAbilities() 
+        {
+            Console.WriteLine($"\n=== {Name}'s abilities ===");
+
+            if (listAbilities.Count == 0) 
+            {
+                Console.WriteLine("No abilites equiped!");
+                return;
+            }
+
+            var orderAbilites = listAbilities.OrderByDescending(a => a.RarityAbility).ToList();
+
+            foreach (var ability in orderAbilites) 
+            {
+                var costmult = RarityHelper.RarityMultiplier(ability.RarityAbility);
+
+                Console.WriteLine($"- [{ability.RarityAbility.ToString().ToUpper()}] {ability.Name} | Type: { ability.TypeAbility} | Cost: {costmult * ability.ManaCost}");
+            }
+        }
+
+        public void UseAbility(string abilityName) 
+        {
+            var ability = listAbilities.FirstOrDefault(a => a.Name.Equals(abilityName));
+
+            if (ability != null)
+            {
+                ability.Execute(this);
+            }
+            else 
+            {
+                Console.WriteLine("This ability does not exist!");
+            }
+        }
     }
 }
