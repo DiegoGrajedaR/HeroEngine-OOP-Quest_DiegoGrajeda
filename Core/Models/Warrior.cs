@@ -24,7 +24,9 @@ namespace PP7_HeroEngine_OOP.Core.Models
         {
             int damage = 30 + (Level * 5);
 
-            Console.WriteLine($"{Name} screams: '{BattleCry}'\n{Name} attacks! Deals {damage} damage.");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"-> [HERO/Warrior] {Name} screams: '{BattleCry}' {Name} attacks! Deals {damage} damage.");
+            Console.ResetColor();
             return damage;
         }
 
@@ -37,10 +39,12 @@ namespace PP7_HeroEngine_OOP.Core.Models
                 realDamage = 0; 
             }
 
-            Console.WriteLine($"{Name} receives {damage} damage -> absorbed {Math.Min(damage, Armor)} by armor -> real damage: {realDamage}");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"[HERO/Warrior] {Name} receives {damage} damage -> absorbed {Math.Min(damage, Armor)} by armor -> real damage: {realDamage}");
+            Console.ResetColor();
             base.TakeDamage(realDamage);
         }
 
-        public override string ToString() => $"[Warrior] {base.ToString()} | Armor: {Armor} | Battle Cry: {BattleCry}";
+        public override string ToString() => $"\n[HERO/Warrior] {base.ToString()} | Armor: {Armor} | Battle Cry: {BattleCry}";
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace PP7_HeroEngine_OOP.Core.Models
 {
     public abstract class AEnemy
@@ -25,9 +26,15 @@ namespace PP7_HeroEngine_OOP.Core.Models
         public virtual void TakeDamage(int damage) 
         {
             Hp -= damage;
-            if (Hp < 0) { Hp = 0; }
+            if (Hp < 0) 
+            { 
+                Hp = 0;
+            }
 
-            Console.WriteLine($"[Combat] {Species} takes {damage} damage! Remaining HP: {Hp}");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"[ENEMY] {Species} takes {damage} damage! Remaining HP: {Hp}");
+            if (Hp == 0) Console.WriteLine("DEFETED ENEMY!!!");
+            Console.ResetColor();
         }
     }
 }

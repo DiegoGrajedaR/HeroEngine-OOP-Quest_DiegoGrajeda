@@ -35,6 +35,11 @@ namespace PP7_HeroEngine_OOP.Core.Models
             {
                 CurrentHP = 0;
             }
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"{Name} receives {damage} damage. " + ToString());
+            if (IsDefeated) Console.WriteLine("DEFETED HERO!!!");
+            Console.ResetColor();
         }
 
         public override string ToString() => $"{Name} | Level: {Level} | HP: {CurrentHP}/{MaxHP}";

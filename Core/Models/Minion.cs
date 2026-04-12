@@ -8,11 +8,13 @@ namespace PP7_HeroEngine_OOP.Core.Models
 {
     public class Minion : AEnemy
     {
-        public Minion(string species, int level) : base(species, 10 + (level * 10), 5 + (level)) { }
+        public Minion(string species, int level) : base(species, 40 + (level * 10), 5 + (level * 2)) { }
 
         public override int Attack()
         {
-            Console.WriteLine($"{Species} lunges forward!");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"-> [ENEMY] {Species} lunges forward!");
+            Console.ResetColor();
             return BaseDamage;
         }
     }

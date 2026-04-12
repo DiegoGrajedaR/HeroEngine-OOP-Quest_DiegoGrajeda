@@ -9,14 +9,16 @@ namespace PP7_HeroEngine_OOP.Core.Models
     public class Boss : AEnemy
     {
         public string Ultimate { get; set; }
-        public Boss(string species, int level, string ultimate) : base(species,  + (level * 20), 10 + (level * 5)) 
+        public Boss(string species, int level, string ultimate) : base(species, 90 + (level * 30), 15 + (level * 10)) 
         {
             Ultimate = ultimate;
         }
 
         public override int Attack()
         {
-            Console.WriteLine($"{Species} uses ULTIMATE: {Ultimate}!");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"-> [ENEMY] {Species} uses ULTIMATE: {Ultimate}!");
+            Console.ResetColor();
             return BaseDamage;
         }
     }

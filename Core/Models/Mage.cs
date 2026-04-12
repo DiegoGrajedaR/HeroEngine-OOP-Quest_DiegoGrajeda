@@ -29,17 +29,19 @@ namespace PP7_HeroEngine_OOP.Core.Models
                 Mana -= manaCost;
                 int damage = 40 + (ArcaneLvl * 5);
 
-                Console.WriteLine($"{Name} casts a spell! Deals {damage} damage. Remaining Mana: {Mana}");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"-> [HERO/Mage] {Name} casts a spell! Deals {damage} damage. Remaining Mana: {Mana}");
+                Console.ResetColor();
                 return damage;
             }
             else 
             {
-                Console.WriteLine($"{Name} tries to cast a spell but is out of mana! Deals 10 physical damage.");
+                Console.WriteLine($"-> [HERO/Mage] {Name} tries to cast a spell but is out of mana! Deals 10 physical damage.");
                 return 10;
             }
         }
 
-        public override string ToString() => $"[Mage] {base.ToString()} | Mana: {Mana} | ArcaneLvl: {ArcaneLvl}";
+        public override string ToString() => $"\n[HERO/Mage] {base.ToString()} | Mana: {Mana} | ArcaneLvl: {ArcaneLvl}";
 
         //CHAPTER 2 - New methods related to the abilites class, only mage can use them 
 

@@ -1,4 +1,5 @@
-﻿using PP7_HeroEngine_OOP.Core.Enums;
+﻿using PP7_HeroEngine_OOP;
+using PP7_HeroEngine_OOP.Core.Enums;
 using PP7_HeroEngine_OOP.Core.Models;
 using System;
 
@@ -6,22 +7,24 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Mage gandalf = new Mage("Gandalf", 2, 2);
+        //Hereos creation and the party/group
+        List<AHero> partyHeroes =  UIconfig.SetupHeroes();
 
-        AAbility fireball = new AttackAbility("Fireball", RarityAbility.LEGENDARY);
-        AAbility healing = new AttackAbility("Healing", RarityAbility.EPIC);
+        //Form the group of enemies
 
-        Console.WriteLine(gandalf.ToString());
+        List<AEnemy> dungeonEnemies = new List<AEnemy>
+        {
+            new Minion("Slime", UIconfig.lvlOperator.Next(1, 4)),
+            new Minion("Goblin", UIconfig.lvlOperator.Next(1, 4)),
+            new Minion("Dark Goblin", UIconfig.lvlOperator.Next(1, 4)),
+            new Elite("Warrior Skeleton", UIconfig.lvlOperator.Next(4, 6)),
+            new Boss("Baldur the Dark Emperor", UIconfig.lvlOperator.Next(7, 10), "DARK PROJECTILE")
+        };
 
-        gandalf.EquipAbility(fireball);
-        gandalf.EquipAbility(healing);
+        //Start combat
+        
+        CombatEngine.StartBattle(partyHeroes, dungeonEnemies);
 
-        gandalf.ShowOrderedAbilities();
-
-        gandalf.UseAbility("Fireball");
-        gandalf.UseAbility("Healing");
-
-        Console.WriteLine(gandalf.ToString());
 
     }
 }

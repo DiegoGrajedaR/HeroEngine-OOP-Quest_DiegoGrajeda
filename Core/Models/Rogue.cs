@@ -25,16 +25,21 @@ namespace PP7_HeroEngine_OOP.Core.Models
             {
                 HiddenDaggers--;
                 int damage = Convert.ToInt32(25 * StealthMultiplier);
-                Console.WriteLine($"{Name} throws a dagger! Deals {damage} damage. (Daggers left: {HiddenDaggers})");
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"-> [HERO/Rogue] {Name} throws a dagger! Deals {damage} damage. (Daggers left: {HiddenDaggers})");
+                Console.ResetColor();
                 return damage;
             }
             else 
             {
-                Console.WriteLine($"{Name} has no daggers! Deals 15 physical damage.");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"-> [HERO/Rogue] {Name} has no daggers! Deals 15 physical damage.");
+                Console.ResetColor();
                 return 15;
             }
         }
 
-        public override string ToString() => $"[Rogue] {base.ToString()} | Stealth Multiplier: {StealthMultiplier} | Daggers: {HiddenDaggers}";
+        public override string ToString() => $"\n[HERO/Rogue] {base.ToString()} | Stealth Multiplier: {StealthMultiplier} | Daggers: {HiddenDaggers}";
     }
 }
