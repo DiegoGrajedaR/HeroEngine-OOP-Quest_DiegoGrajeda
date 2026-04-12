@@ -43,16 +43,21 @@ namespace PP7_HeroEngine_OOP
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(MSG_errorNumberHeroes, minheroes, maxHeroes);
+                    Console.ResetColor();
                 }
             }
 
             for (int i = 1; i <= numHeroes; i++) 
             {
                 bool validHeroClassOption = false;
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"\n--- CREATING HERO {i} ---");
                 Console.Write("Name: ");
                 string name = Console.ReadLine() ?? $"Hero_{i}";
+                Console.ResetColor();
 
                 int classChoice = 0;
                 int randomLevel = lvlOperator.Next(1, 8);
@@ -60,13 +65,15 @@ namespace PP7_HeroEngine_OOP
                 while (!validHeroClassOption)
                 {
                     Console.Write(MSG_classesHero);
-                    if (int.TryParse(Console.ReadLine(), out classChoice) && classChoice >= 1 && numHeroes <= 3)
+                    if (int.TryParse(Console.ReadLine(), out classChoice) && classChoice >= 1 && classChoice <= 3)
                     {
                         validHeroClassOption = true;
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(MSG_errorNumberHeroes, 1, 3);
+                        Console.ResetColor();
                     }
                 }
 
@@ -92,7 +99,10 @@ namespace PP7_HeroEngine_OOP
 
                     heroesParty.Add(mage);
                 }
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine($"=> {name} (Level {randomLevel}) joined the party!");
+                Console.ResetColor();
+                Console.ReadKey();
             }
             Console.Clear();
             return heroesParty;
